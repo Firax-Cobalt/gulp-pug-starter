@@ -1,23 +1,10 @@
 extends ../layouts/default
 
+block variables 
+ - var title = 'Главная страница сайта'
+
 block content
   include ../components/cards-list/cards-list
     block items
-      article.card
-        .card__image
-          img(src='/images/card.svg', alt="")
-        .card__content
-          .card__title Заголовок карточки 1
-          .card__text Текст карточки 1
-      article.card
-        .card__image
-          img(src='/images/card.svg', alt="")
-        .card__content
-          .card__title Заголовок карточки 2
-          .card__text Текст карточки 2
-      article.card
-        .card__image
-          img(src='/images/card.svg', alt="")
-        .card__content
-          .card__title Заголовок карточки 3
-          .card__text Текст карточки 3
+      include ../compontents/card/card
+      +card('/')
