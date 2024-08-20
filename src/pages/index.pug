@@ -1,17 +1,18 @@
 extends ../layouts/default
 
 block variables 
+  - var title = 'Главная страница'
+  - var includeHomeLink = false
   - 
-    var cardsData = [
-      {'image': '/images/card.svg', 'title': 'Заголовок карточки 1', 'text': 'Текст карточки 1'},
-      {'image': '/images/card.svg', 'title': 'Заголовок карточки 2', 'text': 'Текст карточки 2'},
-      {'image': '/images/card.svg', 'title': 'Заголовок карточки 3', 'text': 'Текст карточки 3'}
-    ]
+    var cardsData = []
 
 block content
   include ../components/cards-list/cards-list
     block items
       include ../components/card/card
-      +card(cardsData[0].image, cardsData[0].title, cardsData[0].text)
-      +card(cardsData[1].image, cardsData[1].title, cardsData[1].text)
-      +card(cardsData[2].image, cardsData[2].title, cardsData[2].text)
+      if cardsData.length > 0
+        +card(cardsData[0].image, cardsData[0].title, cardsData[0].text)
+        +card(cardsData[1].image, cardsData[1].title, cardsData[1].text)
+        +card(cardsData[2].image, cardsData[2].title, cardsData[2].text)
+      else
+        p карточек нет 😁
